@@ -22,7 +22,7 @@ public class Db {
         try {
             Connection conn = DriverManager.getConnection(uri);
 
-           String tableCliente = "CREATE OR REPLACE TABLE cliente("
+           String tableCliente = "CREATE TABLE cliente("
                     + "idCliente INT, "
                     + "nombre VARCHAR(500),"
                     + "email VARCHAR(500),"
