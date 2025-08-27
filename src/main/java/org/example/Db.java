@@ -1,11 +1,7 @@
 package org.example;
 
 import java.io.FileReader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
@@ -36,13 +32,13 @@ public class Db {
             leerFacturasDesdeCSV(conn, "src/main/resources/facturas.csv");
             leerFacturaProductoDesdeCSV(conn, "src/main/resources/factura_producto.csv");
 
+            System.out.println("Datos cargados exitosamente.");
             mostrarProductoMasRecaudo(conn);
+            System.out.println("\nClientes con mas facturas:");
+            clienteConMasFacturas(conn);
 
             conn.commit();
             conn.close();
-
-            System.out.println("Datos cargados exitosamente.");
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,7 +137,6 @@ public class Db {
 
     private static void mostrarProductoMasRecaudo(Connection conn) {
         try {
-            Statement stmt = conn.createStatement();
             String sqlMaxRecaudacion =
                     "SELECT p.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion " +
                             "FROM producto p " +
@@ -149,8 +144,8 @@ public class Db {
                             "GROUP BY p.idProducto, p.nombre " +
                             "ORDER BY recaudacion DESC " +
                             "FETCH FIRST ROW ONLY";
-
-            var rs = stmt.executeQuery(sqlMaxRecaudacion);
+            PreparedStatement stmt = conn.prepareStatement(sqlMaxRecaudacion);
+            var rs = stmt.executeQuery();
 
             if (rs.next()) {
                 System.out.println("\nProducto que más recaudó:");
@@ -165,6 +160,28 @@ public class Db {
 
             rs.close();
             stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    private static void clienteConMasFacturas(Connection con){
+        try {
+            String sql =
+                    "SELECT c.idCliente, c.nombre, c.email, COUNT(f.idCliente) AS cantidad_facturas "
+                            + "FROM cliente c "
+                            + "LEFT JOIN factura f ON c.idCliente = f.idCliente "
+                            + "GROUP BY c.idCliente, c.nombre, c.email "
+                            + "ORDER BY cantidad_facturas DESC";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                System.out.println("-" + rs.getString("nombre") +
+                        ", Email: " + rs.getString("email") +
+                        " - Facturas: " + rs.getInt("cantidad_facturas"));
+            }
+
+            rs.close();
+            st.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

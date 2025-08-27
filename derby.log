@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Wed Aug 27 09:56:24 ART 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-eb99-d522-00000f68e288 
-on database directory C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
-Loaded from file:/C:/Users/Usuario/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+Wed Aug 27 13:58:59 ART 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-ec77-ee4e-000007528fc0 
+on database directory C:\Users\joaco\OneDrive\Escritorio\Tps\ArquitecturaWeb-Grupo28\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
+Loaded from file:/C:/Users/joaco/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
 java.runtime.version=17.0.16+8-LTS
-user.dir=C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1
+user.dir=C:\Users\joaco\OneDrive\Escritorio\Tps\ArquitecturaWeb-Grupo28
 os.name=Windows 11
 os.arch=amd64
 os.version=10.0
