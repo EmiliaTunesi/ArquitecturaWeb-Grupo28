@@ -1,12 +1,12 @@
 ----------------------------------------------------------------
-Tue Aug 26 13:24:51 ART 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-e732-5092-00000d400000 
-on database directory C:\Users\matia\OneDrive\Escritorio\ArquitecturaWeb-Grupo28\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
-Loaded from file:/C:/Users/matia/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
+Wed Aug 27 09:56:24 ART 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-eb99-d522-00000f68e288 
+on database directory C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
+Loaded from file:/C:/Users/Usuario/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
-java.runtime.version=17.0.15+6-LTS
-user.dir=C:\Users\matia\OneDrive\Escritorio\ArquitecturaWeb-Grupo28
-os.name=Windows 10
+java.runtime.version=17.0.16+8-LTS
+user.dir=C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1
+os.name=Windows 11
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
