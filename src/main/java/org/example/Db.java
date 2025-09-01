@@ -1,6 +1,6 @@
 package org.example;
 
-import java.io.FileReader;
+/* import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,28 +22,10 @@ public class Db {
             Class.forName(driver).getDeclaredConstructor().newInstance();
             Connection conn = DriverManager.getConnection(uri);
             conn.setAutoCommit(false);
-
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("DELETE FROM factura_producto");
-            stmt.executeUpdate("DELETE FROM factura");
-            stmt.executeUpdate("DELETE FROM producto");
-            stmt.executeUpdate("DELETE FROM cliente");
-
             crearTablas(conn);
-
-            leerClientesDesdeCSV(conn, "src/main/resources/clientes.csv");
-            leerProductosDesdeCSV(conn, "src/main/resources/productos.csv");
-            leerFacturasDesdeCSV(conn, "src/main/resources/facturas.csv");
-            leerFacturaProductoDesdeCSV(conn, "src/main/resources/factura_producto.csv");
-
-            mostrarProductoMasRecaudo(conn);
-
             conn.commit();
             conn.close();
-
-            System.out.println("Datos cargados exitosamente.");
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -80,94 +62,4 @@ public class Db {
         stmt.close();
     }
 
-    private static void leerClientesDesdeCSV(Connection conn, String path) throws Exception {
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
-        String sql = "INSERT INTO cliente (idCliente, nombre, email) VALUES (?, ?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        for (CSVRecord row : parser) {
-            pstmt.setInt(1, Integer.parseInt(row.get("idCliente")));
-            pstmt.setString(2, row.get("nombre"));
-            pstmt.setString(3, row.get("email"));
-            pstmt.executeUpdate();
-        }
-
-        pstmt.close();
-    }
-
-    private static void leerProductosDesdeCSV(Connection conn, String path) throws Exception {
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
-        String sql = "INSERT INTO producto (idProducto, nombre, valor) VALUES (?, ?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        for (CSVRecord row : parser) {
-            pstmt.setInt(1, Integer.parseInt(row.get("idProducto")));
-            pstmt.setString(2, row.get("nombre"));
-            pstmt.setFloat(3, Float.parseFloat(row.get("valor")));
-            pstmt.executeUpdate();
-        }
-
-        pstmt.close();
-    }
-
-    private static void leerFacturasDesdeCSV(Connection conn, String path) throws Exception {
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
-        String sql = "INSERT INTO factura (idFactura, idCliente) VALUES (?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        for (CSVRecord row : parser) {
-            pstmt.setInt(1, Integer.parseInt(row.get("idFactura")));
-            pstmt.setInt(2, Integer.parseInt(row.get("idCliente")));
-            pstmt.executeUpdate();
-        }
-
-        pstmt.close();
-    }
-
-    private static void leerFacturaProductoDesdeCSV(Connection conn, String path) throws Exception {
-        CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
-        String sql = "INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?, ?, ?)";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
-
-        for (CSVRecord row : parser) {
-            pstmt.setInt(1, Integer.parseInt(row.get("idFactura")));
-            pstmt.setInt(2, Integer.parseInt(row.get("idProducto")));
-            pstmt.setInt(3, Integer.parseInt(row.get("cantidad")));
-            pstmt.executeUpdate();
-        }
-
-        pstmt.close();
-    }
-
-    private static void mostrarProductoMasRecaudo(Connection conn) {
-        try {
-            Statement stmt = conn.createStatement();
-            String sqlMaxRecaudacion =
-                    "SELECT p.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion " +
-                            "FROM producto p " +
-                            "JOIN factura_producto fp ON p.idProducto = fp.idProducto " +
-                            "GROUP BY p.idProducto, p.nombre " +
-                            "ORDER BY recaudacion DESC " +
-                            "FETCH FIRST ROW ONLY";
-
-            var rs = stmt.executeQuery(sqlMaxRecaudacion);
-
-            if (rs.next()) {
-                System.out.println("\nProducto que más recaudó:");
-                System.out.println(
-                        rs.getInt("idProducto") + " - " +
-                                rs.getString("nombre") + " - Recaudación: " +
-                                rs.getDouble("recaudacion")
-                );
-            } else {
-                System.out.println("No hay productos vendidos.");
-            }
-
-            rs.close();
-            stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-}
+}*/
