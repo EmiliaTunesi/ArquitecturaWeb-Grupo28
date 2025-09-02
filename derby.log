@@ -1,6 +1,11 @@
 ----------------------------------------------------------------
+<<<<<<< Updated upstream
 Wed Aug 27 13:58:59 ART 2025:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-ec77-ee4e-000007528fc0 
+=======
+Tue Sep 02 17:20:52 ART 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0199-0c16-e98d-000007528fc0 
+>>>>>>> Stashed changes
 on database directory C:\Users\joaco\OneDrive\Escritorio\Tps\ArquitecturaWeb-Grupo28\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
 Loaded from file:/C:/Users/joaco/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
