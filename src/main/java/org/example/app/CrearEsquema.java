@@ -15,6 +15,12 @@ public class CrearEsquema {
         try (Connection conn = factory.getConnection();
              Statement stmt = conn.createStatement()) {
 
+            // Borrar tablas si existen
+            try { stmt.execute("DROP TABLE factura_producto"); } catch (Exception ignored) {}
+            try { stmt.execute("DROP TABLE factura"); } catch (SQLException ignored) {}
+            try { stmt.execute("DROP TABLE producto"); } catch (SQLException ignored) {}
+            try { stmt.execute("DROP TABLE cliente"); } catch (SQLException ignored) {}
+
             // Tabla Cliente
             String tableCliente = "CREATE TABLE cliente(" +
                     "idCliente INT PRIMARY KEY, " +
@@ -39,17 +45,18 @@ public class CrearEsquema {
                     "cantidad INT, " +
                     "PRIMARY KEY(idFactura, idProducto))";
 
-            // Ejecutar, ignorando si ya existen
+            // Ejecutar creación de tablas
             try { stmt.execute(tableCliente); } catch (SQLException ignored) {}
             try { stmt.execute(tableProducto); } catch (SQLException ignored) {}
             try { stmt.execute(tableFactura); } catch (SQLException ignored) {}
             try { stmt.execute(tableFacturaProducto); } catch (SQLException ignored) {}
 
-            System.out.println("Esquema creado (o ya existía)");
+            System.out.println("Esquema de tablas creado");
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 }
+
 

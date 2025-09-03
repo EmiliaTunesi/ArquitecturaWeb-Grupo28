@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Mon Sep 01 17:18:15 UYT 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0199-06ee-26f4-00000ee1ec20 
-on database directory C:\ArquitecturaWeb-Grupo28\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
+Wed Sep 03 11:50:47 UYT 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0199-100f-1395-00000ec315f0 
+on database directory C:\ArquitecturaWeb-Grupo28\integradorDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
 Loaded from file:/C:/Users/User/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
 java.runtime.version=17.0.16+8-LTS
@@ -11,3 +11,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Sep 03 11:50:48 UYT 2025: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Sep 03 11:50:48 UYT 2025:
+Shutting down instance a816c00e-0199-100f-1395-00000ec315f0 on database directory C:\ArquitecturaWeb-Grupo28\integradorDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
+----------------------------------------------------------------
