@@ -1,5 +1,4 @@
 package org.example.app;
-//DESCOMENTAR ESTA CLASE CUANDO TENGAMOS LOS DAO y las entitys
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
