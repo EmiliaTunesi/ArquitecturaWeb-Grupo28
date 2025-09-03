@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Aug 26 13:24:51 ART 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-e732-5092-00000d400000 
+Tue Aug 26 14:17:09 ART 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0198-e762-31d8-00000d082350 
 on database directory C:\Users\matia\OneDrive\Escritorio\ArquitecturaWeb-Grupo28\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
 Loaded from file:/C:/Users/matia/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
