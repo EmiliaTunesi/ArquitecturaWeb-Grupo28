@@ -25,6 +25,12 @@ public class Main {
         for (Cliente c : lista) {
             System.out.println(c.getIdClient() + " - " + c.getNombre() + " - " + c.getEmail());
         }
+        try {
+            java.sql.DriverManager.getConnection("jdbc:derby:;shutdown=true");
+        } catch (SQLException e) {
+            // Esta excepción es normal al cerrar Derby embebido
+            System.out.println("Derby cerrado correctamente.");
+        }
 
     }
 }

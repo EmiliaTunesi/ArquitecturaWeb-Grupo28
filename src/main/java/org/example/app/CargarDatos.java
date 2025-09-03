@@ -40,10 +40,20 @@ public class CargarDatos {
     private static void leerClientesDesdeCSV(ClienteDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            String nombre = row.get("nombre");
+            if (nombre == null || nombre.isBlank()) {
+                nombre = "";
+            }
+
+            String email = row.get("email");
+            if (email == null || email.isBlank()) {
+                email = "";
+            }
+
             Cliente c = new Cliente(
                     Integer.parseInt(row.get("idCliente")),
-                    row.get("nombre"),
-                    row.get("email")
+                    nombre,
+                    email
             );
             dao.insertar(c);
         }
@@ -52,10 +62,21 @@ public class CargarDatos {
     private static void leerProductosDesdeCSV(ProductoDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            String nombre = row.get("nombre");
+            if (nombre == null || nombre.isBlank()) {
+                nombre = "";
+            }
+
+            String valorStr = row.get("valor");
+            float valor = 0;
+            if (valorStr != null && !valorStr.isBlank()) {
+                valor = Float.parseFloat(valorStr);
+            }
+
             Producto p = new Producto(
                     Integer.parseInt(row.get("idProducto")),
-                    row.get("nombre"),
-                    Float.parseFloat(row.get("valor"))
+                    nombre,
+                    valor
             );
             dao.insertar(p);
         }
@@ -64,9 +85,15 @@ public class CargarDatos {
     private static void leerFacturasDesdeCSV(FacturaDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            int idCliente = 0;
+            String idClienteStr = row.get("idCliente");
+            if (idClienteStr != null && !idClienteStr.isBlank()) {
+                idCliente = Integer.parseInt(idClienteStr);
+            }
+
             Factura f = new Factura(
                     Integer.parseInt(row.get("idFactura")),
-                    Integer.parseInt(row.get("idCliente"))
+                    idCliente
             );
             dao.insertar(f);
         }
@@ -75,12 +102,32 @@ public class CargarDatos {
     private static void leerFacturaProductosDesdeCSV(FactProductoDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            int idFactura = 0;
+            int idProducto = 0;
+            int cantidad = 0;
+
+            String idFacturaStr = row.get("idFactura");
+            if (idFacturaStr != null && !idFacturaStr.isBlank()) {
+                idFactura = Integer.parseInt(idFacturaStr);
+            }
+
+            String idProductoStr = row.get("idProducto");
+            if (idProductoStr != null && !idProductoStr.isBlank()) {
+                idProducto = Integer.parseInt(idProductoStr);
+            }
+
+            String cantidadStr = row.get("cantidad");
+            if (cantidadStr != null && !cantidadStr.isBlank()) {
+                cantidad = Integer.parseInt(cantidadStr);
+            }
+
             FacturaProducto fp = new FacturaProducto(
-                    Integer.parseInt(row.get("idFactura")),
-                    Integer.parseInt(row.get("idProducto")),
-                    Integer.parseInt(row.get("cantidad"))
+                    idFactura,
+                    idProducto,
+                    cantidad
             );
             dao.insertar(fp);
         }
     }
 }
+

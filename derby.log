@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Wed Sep 03 09:15:18 ART 2025:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0199-0f80-b807-00000f6a0d58 
+Wed Sep 03 10:43:59 ART 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585): instance a816c00e-0199-0fd1-eb8d-00000f6a0bb8 
 on database directory C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
 Loaded from file:/C:/Users/Usuario/.m2/repository/org/apache/derby/derby/10.15.2.0/derby-10.15.2.0.jar
 java.vendor=Microsoft
@@ -11,8 +11,8 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-Wed Sep 03 09:15:18 ART 2025 Thread[main,5,main] (XID = 1280), (SESSIONID = 1), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:18 ART 2025 Thread[main,5,main] (XID = 1280), (SESSIONID = 1), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: DROP TABLE factura_producto
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1334), (SESSIONID = 1), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1334), (SESSIONID = 1), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: DROP TABLE factura_producto
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -36,11 +36,11 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.impl.sql.conn.GenericLanguageConnectionContext.prepareInternalStatement(GenericLanguageConnectionContext.java:1114)
 	at org.apache.derby.impl.jdbc.EmbedStatement.execute(EmbedStatement.java:689)
 	at org.apache.derby.impl.jdbc.EmbedStatement.execute(EmbedStatement.java:637)
-	at org.example.app.CrearEsquema.run(CrearEsquema.java:18)
+	at org.example.app.CrearEsquema.run(CrearEsquema.java:19)
 	at org.example.app.Main.main(Main.java:15)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1283), (SESSIONID = 3), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1283), (SESSIONID = 3), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO cliente (idCliente, nombre, email) VALUES (?,?,?)
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1337), (SESSIONID = 3), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1337), (SESSIONID = 3), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO cliente (idCliente, nombre, email) VALUES (?,?,?)
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -66,12 +66,12 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1568)
 	at org.example.dao.impl.ClienDAODerby.insertar(ClienDAODerby.java:24)
-	at org.example.app.CargarDatos.leerClientesDesdeCSV(CargarDatos.java:48)
+	at org.example.app.CargarDatos.leerClientesDesdeCSV(CargarDatos.java:58)
 	at org.example.app.CargarDatos.run(CargarDatos.java:28)
 	at org.example.app.Main.main(Main.java:16)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1285), (SESSIONID = 5), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1285), (SESSIONID = 5), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO producto (idProducto, nombre, valor) VALUES (?,?,?)
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1339), (SESSIONID = 5), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1339), (SESSIONID = 5), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO producto (idProducto, nombre, valor) VALUES (?,?,?)
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -97,12 +97,12 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1568)
 	at org.example.dao.impl.ProducDAODerby.insertar(ProducDAODerby.java:22)
-	at org.example.app.CargarDatos.leerProductosDesdeCSV(CargarDatos.java:60)
+	at org.example.app.CargarDatos.leerProductosDesdeCSV(CargarDatos.java:81)
 	at org.example.app.CargarDatos.run(CargarDatos.java:29)
 	at org.example.app.Main.main(Main.java:16)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1287), (SESSIONID = 7), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1287), (SESSIONID = 7), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO factura (idFactura, idCliente) VALUES (?,?)
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1341), (SESSIONID = 7), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1341), (SESSIONID = 7), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO factura (idFactura, idCliente) VALUES (?,?)
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -128,12 +128,12 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1568)
 	at org.example.dao.impl.FacturDAODerby.insertar(FacturDAODerby.java:22)
-	at org.example.app.CargarDatos.leerFacturasDesdeCSV(CargarDatos.java:71)
+	at org.example.app.CargarDatos.leerFacturasDesdeCSV(CargarDatos.java:98)
 	at org.example.app.CargarDatos.run(CargarDatos.java:30)
 	at org.example.app.Main.main(Main.java:16)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1289), (SESSIONID = 9), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1289), (SESSIONID = 9), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?,?,?)
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1343), (SESSIONID = 9), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1343), (SESSIONID = 9), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: INSERT INTO factura_producto (idFactura, idProducto, cantidad) VALUES (?,?,?)
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -159,12 +159,12 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1568)
 	at org.example.dao.impl.FacturProdDAODerby.insertar(FacturProdDAODerby.java:22)
-	at org.example.app.CargarDatos.leerFacturaProductosDesdeCSV(CargarDatos.java:83)
+	at org.example.app.CargarDatos.leerFacturaProductosDesdeCSV(CargarDatos.java:129)
 	at org.example.app.CargarDatos.run(CargarDatos.java:31)
 	at org.example.app.Main.main(Main.java:16)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1295), (SESSIONID = 11), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1295), (SESSIONID = 11), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: SELECT p.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion FROM producto p JOIN factura_producto fp ON p.idProducto = fp.idProducto GROUP BY p.idProducto, p.nombre ORDER BY recaudacion DESC FETCH FIRST ROW ONLY
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1349), (SESSIONID = 11), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1349), (SESSIONID = 11), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: SELECT p.idProducto, p.nombre, SUM(fp.cantidad * p.valor) AS recaudacion FROM producto p JOIN factura_producto fp ON p.idProducto = fp.idProducto GROUP BY p.idProducto, p.nombre ORDER BY recaudacion DESC FETCH FIRST ROW ONLY
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -195,11 +195,11 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.apache.derby.iapi.jdbc.Driver42.newEmbedPreparedStatement(Driver42.java:56)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1740)
 	at org.apache.derby.impl.jdbc.EmbedConnection.prepareStatement(EmbedConnection.java:1568)
-	at org.example.app.DevolverMaxRecaudacion.run(DevolverMaxRecaudacion.java:23)
+	at org.example.app.DevolverMaxRecaudacion.run(DevolverMaxRecaudacion.java:24)
 	at org.example.app.Main.main(Main.java:17)
 Cleanup action completed
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1298), (SESSIONID = 13), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
-Wed Sep 03 09:15:19 ART 2025 Thread[main,5,main] (XID = 1298), (SESSIONID = 13), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: SELECT idCliente, nombre, email FROM CLIENTE
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1352), (SESSIONID = 13), (DATABASE = exampleDB), (DRDAID = null), Cleanup action starting
+Wed Sep 03 10:44:00 ART 2025 Thread[main,5,main] (XID = 1352), (SESSIONID = 13), (DATABASE = exampleDB), (DRDAID = null), Failed Statement is: SELECT idCliente, nombre, email FROM CLIENTE
 java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is null
 	at java.base/java.io.StringReader.<init>(StringReader.java:51)
 	at org.apache.derby.impl.services.uuid.BasicUUID.<init>(BasicUUID.java:68)
@@ -232,3 +232,9 @@ java.lang.NullPointerException: Cannot invoke "String.length()" because "s" is n
 	at org.example.dao.impl.ClienDAODerby.obtenerTodos(ClienDAODerby.java:47)
 	at org.example.app.Main.main(Main.java:23)
 Cleanup action completed
+----------------------------------------------------------------
+Wed Sep 03 10:44:00 ART 2025: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Sep 03 10:44:00 ART 2025:
+Shutting down instance a816c00e-0199-0fd1-eb8d-00000f6a0bb8 on database directory C:\Users\Usuario\Desktop\TUADI- UNICEN\2º año- 2º cuatri\ArqWeb-G28-TP1-EJ1\exampleDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@60e53b93 
+----------------------------------------------------------------
