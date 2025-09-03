@@ -5,6 +5,7 @@ import org.example.dao.factory.DerbyDAOFactory;
 import org.example.dao.interfaces.ClienteDAO;
 import org.example.entity.Cliente;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class Main {
         //acá ir armando la app, es decir ir llamando
         CrearEsquema.run();
         CargarDatos.run();
+        DevolverMaxRecaudacion.run();
 
 
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.DERBY_JDBC);
