@@ -6,10 +6,9 @@ import org.example.utils.DerbyConnectionFactory;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 
 public class DevolverMaxRecaudacion {
-        private static void run() {
+        public static void run() {
             ConnectionFactory factory = new DerbyConnectionFactory();
 
             String sqlMaxRecaudacion =
