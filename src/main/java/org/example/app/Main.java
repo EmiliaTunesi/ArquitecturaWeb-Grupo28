@@ -15,6 +15,7 @@ public class Main {
         CrearEsquema.run();
         CargarDatos.run();
         DevolverMaxRecaudacion.run();
+        ClienteConMasFacturas.run();
 
 
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.DERBY_JDBC);

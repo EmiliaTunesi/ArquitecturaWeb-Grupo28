@@ -23,26 +23,17 @@ public class ClienteConMasFacturas {
                  PreparedStatement st = conn.prepareStatement(sql);
                  ResultSet rs = st.executeQuery()) {
 
-                System.out.println("\nCliente(s) con más facturas:");
-
-                boolean hayResultados = false;
                 while (rs.next()) {
-                    hayResultados = true;
+                    int idCliente = rs.getInt("idCliente");
                     String nombre = rs.getString("nombre");
-                    if (nombre == null) nombre = ""; // Validación de null
+                    if (nombre == null) nombre = "";
 
                     String email = rs.getString("email");
                     if (email == null) email = "";
 
                     int cantidad = rs.getInt("cantidad_facturas");
 
-                    System.out.println("- " + nombre +
-                            ", Email: " + email +
-                            " - Facturas: " + cantidad);
-                }
-
-                if (!hayResultados) {
-                    System.out.println("No hay clientes con facturas registradas.");
+                    System.out.println(idCliente + " - " + nombre + " - " + email + " - Facturas: " + cantidad);
                 }
 
             } catch (SQLException e) {
