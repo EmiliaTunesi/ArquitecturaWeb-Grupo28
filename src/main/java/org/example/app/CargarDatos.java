@@ -40,61 +40,94 @@ public class CargarDatos {
     private static void leerClientesDesdeCSV(ClienteDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
-            String nombre = row.get("nombre");
-            if (nombre == null || nombre.isBlank()) {
-                nombre = "";
+            String idClienteStr = row.get("idCliente");
+            if (idClienteStr == null || idClienteStr.trim().isEmpty()) {
+                System.err.println("Saltando fila - idCliente vacío o null");
+                continue;
             }
+
+            String nombre = row.get("nombre");
+            if (nombre == null || nombre.trim().isEmpty()) nombre = "";
 
             String email = row.get("email");
-            if (email == null || email.isBlank()) {
-                email = "";
-            }
+            if (email == null || email.trim().isEmpty()) email = "";
 
-            Cliente c = new Cliente(
-                    Integer.parseInt(row.get("idCliente")),
-                    nombre,
-                    email
-            );
-            dao.insertar(c);
+            try {
+                Cliente c = new Cliente(
+                        Integer.parseInt(idClienteStr.trim()),
+                        nombre.trim(),
+                        email.trim()
+                );
+                dao.insertar(c);
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing idCliente: " + idClienteStr);
+            }
         }
     }
 
     private static void leerProductosDesdeCSV(ProductoDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            String idProductoStr = row.get("idProducto");
+            if (idProductoStr == null || idProductoStr.trim().isEmpty()) {
+                System.err.println("Saltando fila - idProducto vacío o null");
+                continue;
+            }
+
             String nombre = row.get("nombre");
-            if (nombre == null || nombre.isBlank()) {
-                nombre = "";
-            }
+            if (nombre == null || nombre.trim().isEmpty()) nombre = "";
 
-            String valorStr = row.get("valor");
             float valor = 0;
-            if (valorStr != null && !valorStr.isBlank()) {
-                valor = Float.parseFloat(valorStr);
+            String valorStr = row.get("valor");
+            if (valorStr != null && !valorStr.trim().isEmpty()) {
+                try {
+                    valor = Float.parseFloat(valorStr.trim());
+                } catch (NumberFormatException e) {
+                    System.err.println("Error parsing valor: " + valorStr);
+                }
             }
 
-            Producto p = new Producto(
-                    Integer.parseInt(row.get("idProducto")),
-                    nombre,
-                    valor
-            );
-            dao.insertar(p);
+            try {
+                Producto p = new Producto(
+                        Integer.parseInt(idProductoStr.trim()),
+                        nombre.trim(),
+                        valor
+                );
+                dao.insertar(p);
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing idProducto: " + idProductoStr);
+            }
         }
     }
 
     private static void leerFacturasDesdeCSV(FacturaDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
-            int idCliente = 0;
-            String idClienteStr = row.get("idCliente");
-            if (idClienteStr != null && !idClienteStr.isBlank()) {
-                idCliente = Integer.parseInt(idClienteStr);
+            String idFacturaStr = row.get("idFactura");
+            if (idFacturaStr == null || idFacturaStr.trim().isEmpty()) {
+                System.err.println("Saltando fila - idFactura vacío o null");
+                continue;
             }
 
-            Factura f = new Factura(
-                    Integer.parseInt(row.get("idFactura")),
-                    idCliente
-            );
+            int idFactura = 0;
+            try {
+                idFactura = Integer.parseInt(idFacturaStr.trim());
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing idFactura: " + idFacturaStr);
+                continue;
+            }
+
+            int idCliente = 0;
+            String idClienteStr = row.get("idCliente");
+            if (idClienteStr != null && !idClienteStr.trim().isEmpty()) {
+                try {
+                    idCliente = Integer.parseInt(idClienteStr.trim());
+                } catch (NumberFormatException e) {
+                    System.err.println("Error parsing idCliente: " + idClienteStr);
+                }
+            }
+
+            Factura f = new Factura(idFactura, idCliente);
             dao.insertar(f);
         }
     }
@@ -102,30 +135,46 @@ public class CargarDatos {
     private static void leerFacturaProductosDesdeCSV(FactProductoDAO dao, String path) throws Exception {
         CSVParser parser = CSVFormat.DEFAULT.withHeader().parse(new FileReader(path));
         for (CSVRecord row : parser) {
+            String idFacturaStr = row.get("idFactura");
+            String idProductoStr = row.get("idProducto");
+            String cantidadStr = row.get("cantidad");
+
+            if (idFacturaStr == null || idFacturaStr.trim().isEmpty()) {
+                System.err.println("Saltando fila - idFactura vacío o null");
+                continue;
+            }
+            if (idProductoStr == null || idProductoStr.trim().isEmpty()) {
+                System.err.println("Saltando fila - idProducto vacío o null");
+                continue;
+            }
+
             int idFactura = 0;
             int idProducto = 0;
             int cantidad = 0;
 
-            String idFacturaStr = row.get("idFactura");
-            if (idFacturaStr != null && !idFacturaStr.isBlank()) {
-                idFactura = Integer.parseInt(idFacturaStr);
+            try {
+                idFactura = Integer.parseInt(idFacturaStr.trim());
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing idFactura: " + idFacturaStr);
+                continue;
             }
 
-            String idProductoStr = row.get("idProducto");
-            if (idProductoStr != null && !idProductoStr.isBlank()) {
-                idProducto = Integer.parseInt(idProductoStr);
+            try {
+                idProducto = Integer.parseInt(idProductoStr.trim());
+            } catch (NumberFormatException e) {
+                System.err.println("Error parsing idProducto: " + idProductoStr);
+                continue;
             }
 
-            String cantidadStr = row.get("cantidad");
-            if (cantidadStr != null && !cantidadStr.isBlank()) {
-                cantidad = Integer.parseInt(cantidadStr);
+            if (cantidadStr != null && !cantidadStr.trim().isEmpty()) {
+                try {
+                    cantidad = Integer.parseInt(cantidadStr.trim());
+                } catch (NumberFormatException e) {
+                    System.err.println("Error parsing cantidad: " + cantidadStr);
+                }
             }
 
-            FacturaProducto fp = new FacturaProducto(
-                    idFactura,
-                    idProducto,
-                    cantidad
-            );
+            FacturaProducto fp = new FacturaProducto(idFactura, idProducto, cantidad);
             dao.insertar(fp);
         }
     }

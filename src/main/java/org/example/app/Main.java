@@ -18,7 +18,14 @@ public class Main {
 
 
         DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.DERBY_JDBC);
+        if (factory == null) {
+            throw new RuntimeException("No se pudo crear la factory para Derby");
+        }
+
         ClienteDAO clienteDAO = factory.getClientDAO();
+        if (clienteDAO == null) {
+            throw new RuntimeException("No se pudo crear el ClienteDAO");
+        }
 
         List<Cliente> lista = clienteDAO.obtenerTodos();
 

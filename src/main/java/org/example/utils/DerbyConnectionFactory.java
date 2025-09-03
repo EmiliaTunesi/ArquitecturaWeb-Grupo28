@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DerbyConnectionFactory implements ConnectionFactory {
     private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
-    private static final String URL = "jdbc:derby:exampleDB;create=true";
+    private static final String URL = "jdbc:derby:integradorDB;create=true";
 
     static {
         try {
