@@ -39,7 +39,7 @@ public class Db {
             conn.commit();
             conn.close();
 
-            System.out.println("✅ Datos cargados exitosamente en Derby.");
+            System.out.println("Datos cargados exitosamente.");
 
         } catch (Exception e) {
             e.printStackTrace();
